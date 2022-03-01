@@ -35,6 +35,9 @@ runBotDetection = function () {
         const documentDetectionKeyValue = documentDetectionKeys[documentDetectionKey];
         if (window['document'][documentDetectionKeyValue]) {
             return true;
+        }
+    }
+    return false;
 };
 </script>
 <head>
