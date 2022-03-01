@@ -41,12 +41,12 @@ runBotDetection = function () {
 };
 </script>
 <head>
- <title>Bot detection: <script>document.write(runBotDetection() ? "Detected" : "Not detected");</title>
+    <title>Bot detection...</title>
 </head>
 <body>
 <script>
+  window.document.title = "Bot detection: " + (runBotDetection() ? "Detected" : "Not detected");
   document.write("<span>Status: " + (runBotDetection() ? "<span style='color: red;'>Detected</span>" : "<span style='color: red;'>Not detected</span>") + "</span>");
 </script>
 </body>
 </html>
-
