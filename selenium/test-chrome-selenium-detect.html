@@ -1,0 +1,45 @@
+<html>
+<script>
+runBotDetection = function () {
+    var documentDetectionKeys = [
+        "__webdriver_evaluate",
+        "__selenium_evaluate",
+        "__webdriver_script_function",
+        "__webdriver_script_func",
+        "__webdriver_script_fn",
+        "__fxdriver_evaluate",
+        "__driver_unwrapped",
+        "__webdriver_unwrapped",
+        "__driver_evaluate",
+        "__selenium_unwrapped",
+        "__fxdriver_unwrapped",
+    ];
+
+    var windowDetectionKeys = [
+        "_phantom",
+        "__nightmare",
+        "_selenium",
+        "callPhantom",
+        "callSelenium",
+        "_Selenium_IDE_Recorder",
+    ];
+
+    for (const windowDetectionKey in windowDetectionKeys) {
+        const windowDetectionKeyValue = windowDetectionKeys[windowDetectionKey];
+        if (window[windowDetectionKeyValue]) {
+            return true;
+        }
+    };
+    for (const documentDetectionKey in documentDetectionKeys) {
+        const documentDetectionKeyValue = documentDetectionKeys[documentDetectionKey];
+        if (window['document'][documentDetectionKeyValue]) {
+            return true;
+};
+</script>
+<head>
+<title>Bot detection: <script>document.write(runBotDetection() ? "Detected" : "Not detected");</title>
+<body>
+document.write("<span>Status: " + (runBotDetection() ? "<b color=red>Detected</b>" : "<b color=green>Not detected</b>") + "</span>");
+</body>
+</html>
+
